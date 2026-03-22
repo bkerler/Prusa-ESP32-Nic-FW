@@ -593,7 +593,9 @@ static void read_wifi_client_message() {
         wifi_config.sta.threshold.authmode = WIFI_AUTH_WPA2_PSK;
     }
     wifi_config.sta.pmf_cfg.capable = 1;
-
+    wifi_config.sta.scan_method = WIFI_ALL_CHANNEL_SCAN;
+    wifi_config.sta.sort_method = WIFI_CONNECT_AP_BY_SIGNAL;
+    
     // If scan is in progress we need to stop it manually here to prevent reconnect to previous AP.
     if (scan.in_progress) {
         scan.should_reconnect = false;
